@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>JS Drum Kit</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://fav.farm/🔥" />
+    <link rel="icon" href="https://fav.farm/🔥"/>
 
 </head>
+<img src="background.jpg" height="1393" width="2098"/>
 <body>
+
+
 
 
 <div class="keys">
@@ -60,11 +63,17 @@
 <audio data-key="76" src="sounds/tink.wav"></audio>
 
 
-
 <script src="index.js"></script>
 <script>
-    window.addEventListener('keydown', function (e){
-
+    window.addEventListener('keydown', function (e) {
+        const audio = document.querySelector(`audio[data-key ="${e.keyCode}"]`);
+        const key = document.querySelector(`.keys[data-key ="${e.keyCode}"]`);
+        if (!audio) {
+            return;
+        }
+        audio.currentTime = 0;
+        audio.play();
+        console.log(key)
     })
 
 
